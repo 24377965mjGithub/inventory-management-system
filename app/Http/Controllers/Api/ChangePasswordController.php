@@ -27,7 +27,7 @@ class ChangePasswordController extends Controller
                 return "Something went wrong";
             }
         } else {
-            return "Incorrect Password  ".$hashedPassword;
+            return "Incorrect Password";
         }
 
     }

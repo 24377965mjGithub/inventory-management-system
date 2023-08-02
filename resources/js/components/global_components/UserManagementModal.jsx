@@ -156,7 +156,6 @@ function UserModal({
     let [loadingPasswordButton, setLoadingPasswordButton] = useState(false);
     let [isPasswordEmpty, setPasswordEmpty] = useState(false);
     let [isPasswordDontMatch, setPasswordDontMatch] = useState(false);
-    let [isIncorrectPassword, setIncorrectPassword] = useState(false);
     let [passwordErrorMsg, setPasswordErrorMsg] = useState('');
     let [passwordSuccessMsg, setPasswordSuccessMsg] = useState('');
 
@@ -192,14 +191,24 @@ function UserModal({
                 }).then(res => {
                     setLoadingPasswordButton(false);
                     setIsEditPassword(false);
-                    setPasswordSuccessMsg('Password changed successfully.')
+
+                    if (res.data === "Incorrect Password") {
+                        setPasswordErrorMsg(res.data);
+                        setPasswordSuccessMsg('')
+                        setInterval(() => {
+                            setPasswordErrorMsg('');
+                        }, 5000);
+                    } else {
+                        setInterval(() => {
+                            setPasswordSuccessMsg('');
+                        }, 5000);
+                        setPasswordSuccessMsg(res.data);
+                        setPasswordErrorMsg('');
+                    }
+
                     console.log(res.data);
                 }).catch(err => {
-                    setLoadingPasswordButton(false);
-                    setPasswordErrorMsg(err.response.data.message);
-                    setInterval(() => {
-                        setPasswordErrorMsg("");
-                    }, 5000);
+                    console.log(err.response.data.message);
                 })
             }
         }
@@ -231,8 +240,10 @@ function UserModal({
                     { isPhoneNumberTaken ? <p className="alert alert-danger">The phonenumber has already been taken.</p> : <></> }
                     { isNameEmpty || isPhoneNUmberEmpty || isEmailEmpty || isPasswordEmpty ? <p className="alert alert-danger">Incomplete details.</p> : <></> }
                     { isPasswordDontMatch ? <p className="alert alert-danger">Password don't match.</p> : <></> }
-                    { passwordErrorMsg != "" ? <p className="alert alert-danger">{passwordErrorMsg}</p> : <></> }
-                    { passwordSuccessMsg != "" ? <p className="alert alert-success">{passwordSuccessMsg}</p> : <></> }
+                    {passwordErrorMsg != "" ? <p className="alert alert-danger">{passwordErrorMsg}</p> : <></>}
+                    {passwordSuccessMsg != "" ? <p className="alert alert-success">{passwordSuccessMsg}</p> : <></>}
+                    {/* { passwordErrorMsg != "" ? <p className="alert alert-danger">{passwordErrorMsg}</p> : <></> }
+                    { passwordSuccessMsg != "" ? <p className="alert alert-success">{passwordSuccessMsg}</p> : <></> } */}
 
                     <p className="info">
                         <label>Name</label><br />
@@ -295,9 +306,9 @@ function UserModal({
                         {
                             isEditPassword ? <>
                                 <label>Change Password</label>
-                                <input type="password" placeholder="New Password..." className="form-control" value={newPassword}  onChange={e => setNewPassword(e.target.value)}/><br />
-                                <input type="password" placeholder="Repeat New Password..." className="form-control" value={repeatNewPassword}  onChange={e => setRepeatNewPassword(e.target.value)}/><br />
                                 <input type="password" placeholder="Old Password..." className="form-control" value={oldPassword}  onChange={e => setOldPassword(e.target.value)}/><br />
+                                <input type="password" placeholder="New Password..." className="form-control" value={newPassword}  onChange={e => setNewPassword(e.target.value)}/><br />
+                                <input type="password" placeholder="Confirm New Password..." className="form-control" value={repeatNewPassword}  onChange={e => setRepeatNewPassword(e.target.value)}/><br />
 
                                 {
                                     loadingPasswordButton ? <button className="btn btn-info">Please Wait...</button>
