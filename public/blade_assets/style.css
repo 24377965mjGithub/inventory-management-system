@@ -1,0 +1,256 @@
+@font-face {
+    font-family: Poppins;
+    src: url('../fonts/Poppins-Bold.woff2') format('woff2');
+}
+
+.poppins {
+    font-family: Poppins !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+    margin-bottom: 0px;
+}
+
+.bladeform {
+    background: url('../images/desktop-wallpaper-inventory-management-system-backgrounds.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.bladeform .container {
+    width: 50%;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: -2px 2px 15px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -2px 2px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 2px 15px 0px rgba(0,0,0,0.75);
+}
+
+.bladeform .container h2,
+.bladeform .container h4 {
+    margin-bottom: 30px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.bladeform .container h4 {
+    font-size: 20px;
+}
+
+header{
+    padding: 20px 0 20px 0;
+    background: #fff;
+/* background: linear-gradient(180deg, rgba(0,8,12,1) 0%, rgba(9,83,121,1) 80%); */
+    color: #043045;
+}
+
+header ul  {
+    text-align: right;
+}
+
+header ul li{
+    display: inline-block;
+    margin-right: 30px;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+/* .hero styles */
+
+.hero {
+    background-color: #31424a;
+}
+
+.hero .item {
+    height: 100vh;
+    position: relative;
+  }
+  .hero .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero .item .cover {
+    padding: 75px 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+  }
+  .hero .item .cover .header-content {
+    position: relative;
+    padding: 56px;
+    overflow: hidden;
+  }
+  .hero .item .cover .header-content .line {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    border: 9px solid #fff;
+    -webkit-clip-path: polygon(0 0, 60% 0, 36% 100%, 0 100%);
+    clip-path: polygon(0 0, 60% 0, 36% 100%, 0 100%);
+  }
+  .hero .item .cover .header-content h2 {
+    font-weight: 300;
+    font-size: 35px;
+    color: #fff;
+  }
+  .hero .item .cover .header-content h1 {
+    font-size: 56px;
+    font-weight: 600;
+    margin: 5px 0 20px;
+    word-spacing: 3px;
+    color: #fff;
+  }
+  .hero .item .cover .header-content h4 {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 36px;
+    color: #fff;
+  }
+  .hero .owl-item.active h1 {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-name: fadeInDown;
+    animation-delay: 0.3s;
+  }
+  .hero .owl-item.active h2 {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-name: fadeInDown;
+    animation-delay: 0.3s;
+  }
+  .hero .owl-item.active h4 {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-name: fadeInUp;
+    animation-delay: 0.3s;
+  }
+  .hero .owl-item.active .line {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-name: fadeInLeft;
+    animation-delay: 0.3s;
+  }
+  .hero .owl-nav .owl-prev {
+    position: absolute;
+    left: 15px;
+    top: 43%;
+    opacity: 0;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    background: rgba(0, 0, 0, 0.5) !important;
+    width: 40px;
+    cursor: pointer;
+    height: 40px;
+    position: absolute;
+    display: block;
+    z-index: 1000;
+    border-radius: 0;
+  }
+  .hero .owl-nav .owl-prev span {
+    font-size: 1.6875rem;
+    color: #fff;
+  }
+  .hero .owl-nav .owl-prev:focus {
+    outline: 0;
+  }
+  .hero .owl-nav .owl-prev:hover {
+    background: #000 !important;
+  }
+  .hero .owl-nav .owl-next {
+    position: absolute;
+    right: 15px;
+    top: 43%;
+    opacity: 0;
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    background: rgba(0, 0, 0, 0.5) !important;
+    width: 40px;
+    cursor: pointer;
+    height: 40px;
+    position: absolute;
+    display: block;
+    z-index: 1000;
+    border-radius: 0;
+  }
+  .hero .owl-nav .owl-next span {
+    font-size: 1.6875rem;
+    color: #fff;
+  }
+  .hero .owl-nav .owl-next:focus {
+    outline: 0;
+  }
+  .hero .owl-nav .owl-next:hover {
+    background: #000 !important;
+  }
+ .hero :hover .owl-prev {
+    left: 0px;
+    opacity: 1;
+  }
+.hero :hover .owl-next {
+    right: 0px;
+    opacity: 1;
+  }
+
+  /* dashboard */
+
+  .dashboard {
+    padding: 100px 0 50px 0;
+  }
+
+  /* box */
+
+  .box {
+    padding: 30px;
+    border: #043045 2px  solid;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+    transition: all .5s ease;
+  }
+
+  .box:hover {
+    background: #043045;
+    color: aliceblue;
+    cursor: pointer;
+  }
+
+  .box i {
+    font-size: 50px;
+  }
+
+  .box h3 {
+    font-size: 30px;
+  }
+
+  .box h4 {
+    font-size: 20px;
+  }
