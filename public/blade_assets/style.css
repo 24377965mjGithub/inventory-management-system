@@ -1,6 +1,15 @@
+#root {
+  background: linear-gradient(180deg, #313DAA 0%, #313DAA 100%);
+}
+
 @font-face {
     font-family: Poppins;
     src: url('../fonts/Poppins-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: PoppinsRegular;
+  src: url('../fonts/Poppins-Regular.woff2') format('woff2');
 }
 
 .poppins {
@@ -12,8 +21,9 @@
     padding: 0;
 }
 
-h1,h2,h3,h4,h5,h6,p {
-    margin-bottom: 0px;
+h1,h2,h3,h4,h5,h6,p,ul {
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
 }
 
 .bladeform {
@@ -28,7 +38,7 @@ h1,h2,h3,h4,h5,h6,p {
 }
 
 .bladeform .container {
-    width: 50%;
+    width: 30%;
     background: #fff;
     padding: 30px;
     border-radius: 20px;
@@ -49,21 +59,117 @@ h1,h2,h3,h4,h5,h6,p {
 }
 
 header{
-    padding: 20px 0 20px 0;
     background: #fff;
 /* background: linear-gradient(180deg, rgba(0,8,12,1) 0%, rgba(9,83,121,1) 80%); */
     color: #043045;
 }
 
+header h2 {
+  color: #313DAA;
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 20px;
+}
+
 header ul  {
     text-align: right;
+    padding: 0px !important;
+}
+
+header ul .active {
+  background: #313DAA;
+  color: #EFEFEF;
 }
 
 header ul li{
     display: inline-block;
-    margin-right: 30px;
+    font-family: PoppinsRegular;
     font-size: 15px;
-    margin-top: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0px 0px 40px 0;
+    padding: 50px 20px 20px 20px;
+    color: #010002;
+    transition: all .5s ease;
+}
+
+header ul li i {
+  font-size: 40px;
+  color: #313DAA;
+}
+
+header ul .userRole {
+  color: #313DAA;
+  padding: 50px 20px 20px 50px;
+}
+
+header ul .link:hover {
+  background: #313DAA;
+  color: #EFEFEF;
+  cursor: pointer;
+}
+
+/* modal style */
+
+.modal-header {
+  padding: 20px 0 20px 0;
+  background: #313DAA;
+}
+
+.modal-header h4 {
+  color: #EFEFEF;
+  font-family: PoppinsRegular;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: auto;
+  text-align: center;
+}
+
+.modal-header .userRole {
+  color: #EFEFEF;
+  font-family: PoppinsRegular;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.modal-body {
+  padding: 50px
+}
+
+.modal-body .info{
+  padding: 50px;
+}
+
+.modal-body .alert {
+  padding: 20px !important;
+}
+
+.modal-body .info .grayBg {
+  background: #D9D9D9;
+  display: block;
+  padding: 10px;
+}
+
+.modal-body .info .grayBg .action {
+  float: right;
+}
+
+.modal-footer button {
+  margin: auto;
+  color: #AA3131;
+  font-family: PoppinsRegular;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
 /* .hero styles */
@@ -222,35 +328,44 @@ header ul li{
 
   /* dashboard */
 
-  .dashboard {
+  .dashboard-links {
     padding: 100px 0 50px 0;
   }
 
-  /* box */
-
-  .box {
-    padding: 30px;
-    border: #043045 2px  solid;
-    border-radius: 20px;
+  .dashboard-links .box {
+    color: #fff;
     text-align: center;
-    margin-bottom: 50px;
-    transition: all .5s ease;
+    padding: 50px;
   }
 
-  .box:hover {
-    background: #043045;
-    color: aliceblue;
-    cursor: pointer;
+  .dashboard-links .box:hover {
+    background-color: #EFEFEF;
+    color: #313DAA;
   }
 
-  .box i {
-    font-size: 50px;
+  .dashboard-links h3{
+    color: #EFEFEF;
+    font-family: PoppinsRegular;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }
 
-  .box h3 {
-    font-size: 30px;
+  /* footer */
+
+  footer {
+    padding: 22px 0 22px 0;
+    background: #fff;
+    text-align: center;
   }
 
-  .box h4 {
+  footer p {
+    color: #565656;
+    text-align: center;
+    font-family: PoppinsRegular;
     font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
   }

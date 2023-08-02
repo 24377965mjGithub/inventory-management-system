@@ -208,13 +208,20 @@ function UserModal({
     function cancelEditPassword() {
         setIsEditPassword(false);
     }
+
+    // logout ====================================================================================
+
+     function logout() {
+        axios.post('/logout').then(() => {
+            window.location.replace('/');
+        })
+    }
     
     return <div className="modal fade" id="myModal">
         <div className="modal-dialog">
             <div className="modal-content">
                 <div className="modal-header">
-                    <h4 className="modal-title poppins">{userName}<br />{userRole}</h4>
-                    <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
+                    <h4>{userName}<br /><span className="userRole">{userRole}</span></h4>
                 </div>
                 <div className="modal-body">
 
@@ -227,8 +234,9 @@ function UserModal({
                     { passwordErrorMsg != "" ? <p className="alert alert-danger">{passwordErrorMsg}</p> : <></> }
                     { passwordSuccessMsg != "" ? <p className="alert alert-success">{passwordSuccessMsg}</p> : <></> }
 
-                    <p>
-                        <b><i className="fa fa-user"></i> {userName} - {userRole} <i className="fa fa-edit" onClick={clickEditname}></i></b><br />
+                    <p className="info">
+                        <label>Name</label><br />
+                        <b className="grayBg"><i className="fa fa-user"></i> {userName}<i className="fa fa-edit action" onClick={clickEditname}></i></b><br />
 
                         {/* update name form */}
 
@@ -247,8 +255,9 @@ function UserModal({
                                 <button onClick={cancelNameEdit} className="btn btn-danger">Cancel <i className="fa fa-times"></i></button><br />
                             </> : <></>
                         }
-                                
-                        <b><i className="fa fa-phone"></i> {userPhone} <i className="fa fa-edit" onClick={clickEditPhoneNumber}></i></b><br />
+
+                        <label>Phone Number</label><br />
+                        <b className="grayBg"><i className="fa fa-phone"></i> {userPhone} <i className="fa fa-edit action" onClick={clickEditPhoneNumber}></i></b><br />
 
                         {/* update phone number form */}
 
@@ -264,7 +273,8 @@ function UserModal({
                             </> : <></>
                         }
 
-                        <b><i className="fa fa-envelope"></i> {userEmail} <i className="fa fa-edit" onClick={clickEditEmail}></i></b><br />
+                        <label>Email</label><br />
+                        <b className="grayBg"><i className="fa fa-envelope"></i> {userEmail} <i className="fa fa-edit action" onClick={clickEditEmail}></i></b><br />
 
                         {/* update email form */}
 
@@ -279,7 +289,8 @@ function UserModal({
                             </> : <></>
                         }
 
-                        <b><i className="fa fa-lock"></i> Change Password <i className="fa fa-edit" onClick={clickEditPassword}></i></b><br />
+                        <label>Password</label><br />
+                        <b className="grayBg"><i className="fa fa-lock"></i> Change Password <i className="fa fa-edit action" onClick={clickEditPassword}></i></b><br />
 
                         {
                             isEditPassword ? <>
@@ -300,7 +311,10 @@ function UserModal({
                     </p>
                 </div>
                 <div className="modal-footer">
-                    <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button onClick={logout} className="btn btn-light">Logout <svg xmlns="http://www.w3.org/2000/svg" width="31" height="33" viewBox="0 0 31 33" fill="none">
+<path d="M23.7827 8.18763C23.2146 7.61939 22.293 7.6193 21.7246 8.18754C21.1564 8.75587 21.1563 9.67726 21.7246 10.2456L26.0317 14.5528H8.20089C7.39718 14.5528 6.74561 15.2044 6.74561 16.0081C6.74561 16.8118 7.39718 17.4634 8.20089 17.4634H26.0315L21.7246 21.7703C21.1563 22.3386 21.1563 23.26 21.7246 23.8283C22.0088 24.1125 22.3813 24.2545 22.7537 24.2545C23.1262 24.2545 23.4986 24.1125 23.7827 23.8283L30.5738 17.0372C31.1422 16.469 31.1422 15.5475 30.5738 14.9792L23.7827 8.18763Z" fill="#AA3131"/>
+<path d="M14.9921 32.0162C15.7958 32.0162 16.4473 31.3647 16.4473 30.561C16.4473 29.7572 15.7958 29.1057 14.9921 29.1057H3.83488V2.91057H14.9921C15.7958 2.91057 16.4473 2.25899 16.4473 1.45528C16.4473 0.651579 15.7958 0 14.9921 0H2.3796C1.5759 0 0.924316 0.651579 0.924316 1.45528V30.561C0.924316 31.3647 1.5759 32.0162 2.3796 32.0162H14.9921Z" fill="#AA3131"/>
+</svg></button>
                 </div>
             </div>
         </div>

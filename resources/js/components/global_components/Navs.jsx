@@ -16,18 +16,11 @@ function Navs({
     userMiddleNameState,
     userLastNameState}) {
 
-    function logout() {
-        axios.post('/logout').then(() => {
-            window.location.replace('/');
-        })
-    }
-
     return <>
         <ul>
-            <li><i className="fa fa-home"></i></li>
-            <li><i className="fa fa-question-circle"></i></li>
-            <li data-bs-toggle="modal" data-bs-target="#myModal"><i className="fa fa-user-circle"></i> {userName} - {userRole}</li>
-            <li><button className="btn btn-success" onClick={logout}>Logout</button></li>
+            <li className="active link">Home</li>
+            <li className="link">About</li>
+            <li data-bs-toggle="modal" data-bs-target="#myModal"><span className="userRole">{userRole}</span><i className="fa fa-user-circle"></i></li>
         </ul>
         <UserModal
             userFirstNameState={userFirstNameState}
