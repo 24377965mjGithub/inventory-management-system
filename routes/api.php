@@ -12,7 +12,7 @@ use App\Http\Controllers\Api\GetAllProductsController;
 use App\Http\Controllers\Api\CreateProductCategoryController;
 use App\Http\Controllers\Api\CreateSupplierController;
 use App\Http\Controllers\Api\CreateCustomerTypeController;
-
+use App\Http\Controllers\Api\CreateUserRoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +32,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('auth:sanctum')->get('/currentuser', [GetCurrentUserController::class, 'getCurrentUser']);
 Route::middleware('auth:sanctum')->get('/products', [GetAllProductsController::class, 'getProducts']);
 
+Route::middleware('auth:sanctum')->post('/createuserrole', [CreateUserRoleController::class, 'createUserRole']);
 Route::middleware('auth:sanctum')->post('/editname', [ChangeDetailsController::class, 'changeName']);
 Route::middleware('auth:sanctum')->post('/createsupplier', [CreateSupplierController::class, 'createSupplier']);
 Route::middleware('auth:sanctum')->post('/createcustomertype', [CreateCustomerTypeController::class, 'createCustomerType']);

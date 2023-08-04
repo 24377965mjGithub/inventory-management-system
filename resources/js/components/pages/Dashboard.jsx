@@ -71,6 +71,16 @@ function Dashboard() {
         })
     }
 
+    function createUserRole() {
+        axios.post('/api/createuserrole', {
+            roleName: "Staff"
+        }).then(res => {
+            console.log(res.data);
+        }).catch(err => {
+            console.log(err.response.data.message);
+        })
+    }
+
     // endApi Testing...
 
     loggedInUserRole === "Admin" ? isAdmin = true : isStaff = true;
@@ -109,6 +119,7 @@ function Dashboard() {
                         <button className='btn btn-info' onClick={createProductCategory}>Create Product Category</button>
                         <button className='btn btn-warning' onClick={createSupplier}>Create Supplier</button>
                         <button className='btn btn-info' onClick={createCustomerType}>Create Customer Types</button>
+                        <button className='btn btn-warning' onClick={createUserRole}>Create User Role</button>
                     </div>
                 </div>
             </section>
