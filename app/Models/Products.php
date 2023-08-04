@@ -10,6 +10,7 @@ class Products extends Model
     use HasFactory;
 
     protected $fillable = [
+        'productImage',
         'productCategoryId',
         'suppliersId',
         'productBarCode',
@@ -17,6 +18,7 @@ class Products extends Model
         'productDescription',
         'productPrice',
         'productQuantity',
+        'productStatus',
         'productCost',
     ];
 }
