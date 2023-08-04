@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Role;
 
 class CreateUserRoleController extends Controller
 {
@@ -12,6 +13,10 @@ class CreateUserRoleController extends Controller
             'roleName' => 'required|unique:roles'
         ]);
 
-        return response()->json($request);
+        if (Role::create([
+            'roleName' => $request->roleName
+        ])) {
+            return "User role added successfully";
+        }
     }
 }

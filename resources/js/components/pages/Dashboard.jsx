@@ -2,7 +2,6 @@ import HeroSection from '../global_components/HeroSection';
 import Header from '../global_components/Header';
 import { useState, useEffect } from "react";
 import Footer from "../global_components/Footer";
-import { forEach } from 'lodash';
 
 function Dashboard() {
 
@@ -73,7 +72,23 @@ function Dashboard() {
 
     function createUserRole() {
         axios.post('/api/createuserrole', {
-            roleName: "Staff"
+            roleName: ""
+        }).then(res => {
+            console.log(res.data);
+        }).catch(err => {
+            console.log(err.response.data.message);
+        })
+    }
+
+    function createMember() {
+        axios.post('/api/createmember', {
+            firstname: "Sample",
+            middlename: "Samples",
+            lastname: "Haha",
+            phonenumber: '09979897655',
+            role: 'Staff',
+            email: 'markjasonespelita@gmail.com',
+            password: 'markjasnomarkjason',
         }).then(res => {
             console.log(res.data);
         }).catch(err => {
@@ -120,6 +135,7 @@ function Dashboard() {
                         <button className='btn btn-warning' onClick={createSupplier}>Create Supplier</button>
                         <button className='btn btn-info' onClick={createCustomerType}>Create Customer Types</button>
                         <button className='btn btn-warning' onClick={createUserRole}>Create User Role</button>
+                        <button className='btn btn-danger' onClick={createMember}>Create Mamber</button>
                     </div>
                 </div>
             </section>
