@@ -8,6 +8,10 @@ use App\Http\Controllers\Api\GetRoles;
 use App\Http\Controllers\Api\SavePhoneNUmberController;
 use App\Http\Controllers\Api\SaveEmailController;
 use App\Http\Controllers\Api\ChangePasswordController;
+use App\Http\Controllers\Api\GetAllProductsController;
+use App\Http\Controllers\Api\CreateProductCategoryController;
+use App\Http\Controllers\Api\CreateSupplierController;
+use App\Http\Controllers\Api\CreateCustomerTypeController;
 
 
 /*
@@ -26,7 +30,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->get('/currentuser', [GetCurrentUserController::class, 'getCurrentUser']);
+Route::middleware('auth:sanctum')->get('/products', [GetAllProductsController::class, 'getProducts']);
+
 Route::middleware('auth:sanctum')->post('/editname', [ChangeDetailsController::class, 'changeName']);
+Route::middleware('auth:sanctum')->post('/createsupplier', [CreateSupplierController::class, 'createSupplier']);
+Route::middleware('auth:sanctum')->post('/createcustomertype', [CreateCustomerTypeController::class, 'createCustomerType']);
+Route::middleware('auth:sanctum')->post('/createproductcategory', [CreateProductCategoryController::class, 'createProductCategory']);
 Route::middleware('auth:sanctum')->post('/savephonenumber', [SavePhoneNUmberController::class, 'savePhoneNumber']);
 Route::middleware('auth:sanctum')->post('/saveemail', [SaveEmailController::class, 'saveEmail']);
 Route::middleware('auth:sanctum')->post('/changepassword', [ChangePasswordController::class, 'changePassword']);
