@@ -1,5 +1,6 @@
 import axios from "axios";
 import UserModal from "./UserManagementModal";
+import { Link } from "react-router-dom";
 
 function Navs({
     userName,
@@ -18,8 +19,15 @@ function Navs({
 
     return <>
         <ul>
-            <li className="active link">Home</li>
-            <li className="link">About</li>
+            <Link to={'/'}>
+                <li className="active" id="active">Home</li>
+            </Link>
+            <Link to={'/dashboard'}>
+                <li className="link">Dashboard</li>
+            </Link>
+            <Link to={'/about'}>
+                <li className="link">About</li>
+            </Link>
             <li data-bs-toggle="modal" data-bs-target="#myModal"><span className="userRole">{userRole}</span><i className="fa fa-user-circle"></i></li>
         </ul>
         <UserModal

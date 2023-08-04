@@ -79,7 +79,7 @@ header ul  {
     padding: 0px !important;
 }
 
-header ul .active {
+header ul #active {
   background: #313DAA;
   color: #EFEFEF;
 }
@@ -350,6 +350,12 @@ header ul .link:hover {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
+
+  /* menu */
+
+  .menu-wrapper h1{
+    display: none;
   }
 
   /* footer */

@@ -40,3 +40,4 @@ Route::post('/email/verification-notification', function (Request $request) {
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware(['auth', 'verified']);
 Route::get('/', function () { return view('app'); })->middleware(['auth', 'verified']);
 Route::get('/home', function () { return view('app'); })->middleware(['auth', 'verified']);
+Route::get('/dashboard', function () { return view('app'); })->middleware(['auth', 'verified']);

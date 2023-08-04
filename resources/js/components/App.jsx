@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
+import Home from './pages/Home';
+import Main from './pages/Dashboard';
 
 function App() {
 
@@ -9,8 +10,9 @@ function App() {
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Dashboard />}/>
-                    <Route path="/home" element={<Dashboard />}/>
+                    <Route path="/" element={<Home />}/>
+                    <Route path="/home" element={<Home />}/>
+                    <Route path="/dashboard"  element={<Main />} />
                 </Routes>
             </BrowserRouter>
         </>
